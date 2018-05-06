@@ -6,8 +6,11 @@ This is a fork of http://sourceforge.net/projects/mjpg-streamer/ with added supp
 Edits were made to output_http.c to force WXP_COMPAT for jpg images and change name from "cam" to "img" so that the streamed snapshot can be used in Mario Kart Arcade GP 1 and 2 at expected IP/img.jpg.  For Mario Kart Arcade, the game settings allow you to choose which of 4 IDs a given motherboard should take.  ID 1 expects a camera at 192.168.2.104.  2 expects .105, 3 expects .106, and 4 expects .107, so you can set your RPi to the necessary IP and run mjpg_streamer as follows to get a working camera server going for Mario Kart Arcade GP 1 and 2:
 
 Webcam:
+
 /usr/local/bin/mjpg_streamer -i "input_uvc.so -r 320x240 -d /dev/video0 -f 30 -q 80" -o "output_http.so -p 80 -w /usr/local/share/mjpg-streamer/www
+
 Pi Camera:
+
 /usr/local/bin/mjpg_streamer -i "input_raspicam.so --width 320 --height 240 -d /dev/video0 -fps 30 -quality 80" -o "output_http.so -p 80 -w /usr/local/share/mjpg-streamer/www
 
 mjpg-streamer is a command line application that copies JPEG frames from one

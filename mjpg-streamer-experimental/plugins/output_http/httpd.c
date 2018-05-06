@@ -1067,8 +1067,7 @@ void *client_thread(void *arg)
             query_suffixed = 0;
         }
         #endif
-    #ifdef WXP_COMPAT
-    } else if((strstr(buffer, "GET /cam") != NULL) && (strstr(buffer, ".jpg") != NULL)) {
+    } else if((strstr(buffer, "GET /img") != NULL) && (strstr(buffer, ".jpg") != NULL)) {
         req.type = A_SNAPSHOT_WXP;
         query_suffixed = 255;
         #ifdef MANAGMENT
@@ -1079,7 +1078,6 @@ void *client_thread(void *arg)
             query_suffixed = 0;
         }
         #endif
-    #endif
     } else if(strstr(buffer, "POST /stream") != NULL) {
         req.type = A_STREAM;
         query_suffixed = 255;
